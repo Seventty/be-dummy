@@ -1,9 +1,11 @@
-import server from './startup.js'
+const { server } = require('./startup.js')
+const { PORT } = require('./Config')
+require('./database.js')
 
 const main = async () => {
-    server.listen(3000, () => {
-        console.log('On Server')
+    server.listen(PORT, () => {
+        console.log(`On Server http://localhost:${PORT}`)
     })
 }
 
-await main()
+main()
